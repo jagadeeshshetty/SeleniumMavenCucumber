@@ -20,7 +20,7 @@ public class GoogleSearchSteps {
     public void iOpenGoogleSearchPage() {
         File driverLocation;
         if (System.getProperty("os.name").contains("Mac OS X"))
-            driverLocation = new File(new File("drivers"), "chromedriver");
+            driverLocation = new File("src/test/resources/drivers/chromedriver");
         else
             driverLocation = new File("src/test/resources/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", driverLocation.getAbsolutePath());
