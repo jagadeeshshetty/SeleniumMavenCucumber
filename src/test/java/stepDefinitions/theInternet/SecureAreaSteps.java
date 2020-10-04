@@ -4,12 +4,15 @@ import io.cucumber.java.en.Then;
 import pageObjects.theInternet.SecureAreaPage;
 
 public class SecureAreaSteps {
+    SecureAreaPage secureArea;
 
-    LoginSteps loginSteps = new LoginSteps();
-    SecureAreaPage secureArea = new SecureAreaPage(loginSteps.driver);
+    public SecureAreaSteps() {
+        secureArea = new SecureAreaPage();
+    }
 
     @Then("the success message should display within secure area page")
     public void theSuccessMessageShouldDisplayWithinSecureAreaPage() {
-
+        secureArea.successMessagePresent();
     }
+
 }

@@ -1,35 +1,13 @@
 package pageObjects.theInternet;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
+import pageObjects.BasePage;
 
-public class SecureAreaPage {
-    public String URL = "http://the-internet.herokuapp.com/login";
-    WebDriver driver;
-    @FindBy(id = "username")
-    WebElement USERNAME_INPUT;
-    @FindBy(id = "password")
-    WebElement PASSWORD_INPUT;
-    @FindBy(css = "button")
-    WebElement SUBMIT_BUTTON;
-    @FindBy(css = ".flash.success")
-    WebElement SUCCESS_MESSAGE;
-    @FindBy(css = ".flash.error")
-    WebElement FAILURE_MESSAGE;
-    @FindBy(id = "login")
-    WebElement LOGIN_FORM;
-    private String TITLE = "The Internet";
+public class SecureAreaPage extends BasePage {
+    By successMessageLocator = By.cssSelector(".flash.success");
+    By failureMessageLocator = By.cssSelector(".flash.error");
 
-    public SecureAreaPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
-    }
-
-    public void authenticate(String username, String password) {
-        USERNAME_INPUT.sendKeys(username);
-        PASSWORD_INPUT.sendKeys(password);
-        SUBMIT_BUTTON.click();
+    public Boolean successMessagePresent() {
+        return isDisplayed(successMessageLocator);
     }
 }

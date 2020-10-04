@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"stepDefinitions"},
+        glue = {"stepDefinitions", "utils"},
         strict = true,
         monochrome = true,
         plugin = {
@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
                 "json:target/json-report/json-report.json",
                 "junit:target/junit-report/xml-report.xml"
         },
-        tags = "@failScenarios"
+        tags = "@the_internet_login"
 )
 public class TestRunner {
 }
